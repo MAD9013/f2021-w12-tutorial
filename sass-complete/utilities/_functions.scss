@@ -1,9 +1,11 @@
+@use "sass:math";
+
 @function fontScale($scale, $step) {
   $font-size: 1rem;
   @for $_ from 1 through $step {
     $font-size: $font-size * $scale;
   }
-  $font-size: ceil($font-size * 100) / 100;
+  $font-size: math.div(ceil($font-size * 100), 100);
   
   @return $font-size;
 }
@@ -34,8 +36,4 @@ $classes: (
     
   }
 
-}
-
-h2 {
-  color: lighten($color__primary, 10%);
 }
